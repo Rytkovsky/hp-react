@@ -1,0 +1,27 @@
+.card {
+  width: 334px;
+  height: 409px;
+  border: 1px solid #dee2e6;
+  &__img {
+    object-fit: cover;
+    width: 334px;
+    height: 192px;
+    margin-bottom: 10px;
+  }
+  &__title {
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: #152536;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__text {
+    padding-left: 24px;
+    color: #152536;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    margin-bottom:3px;
+  }
+}

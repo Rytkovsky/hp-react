@@ -1,0 +1,20 @@
+.header {
+  padding: 60px 0 40px 0;
+  &__title {
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -1.28px;
+  }
+  &__text {
+    margin-bottom: 40px;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 36px;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}

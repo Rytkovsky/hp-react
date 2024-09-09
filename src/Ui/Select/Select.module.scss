@@ -1,0 +1,13 @@
+.select {
+  &__text {
+    color: #818182;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  &__select{
+    padding-left: 18px;
+    width: 150px;
+    height: 40px;
+  }
+}
