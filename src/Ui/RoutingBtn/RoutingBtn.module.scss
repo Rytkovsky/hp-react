@@ -1,0 +1,24 @@
+.showLikedBtn {
+  width: 157px;
+  height: 48px;
+  color: #3f444a;
+  font-size: 16px;
+  line-height: 28px;
+  border-radius: 48px;
+  background: #fff;
+  box-shadow: 0px 8px 35px 0px rgba(0, 0, 0, 0.16);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  right: 9.2%;
+  bottom: 1%;
+}
+.backBtn {
+  color: #3f444a;
+  font-size: 16px;
+  line-height: 28px;
+  text-decoration-line: underline;
+  width: 103px;
+  height: 28px;
+}

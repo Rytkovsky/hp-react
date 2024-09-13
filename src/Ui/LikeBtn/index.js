@@ -1,0 +1,1 @@
+export {LikeBtn} from './LikeBtn'

@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import { Main } from "./layouts/Main/Main";
-import { Header } from "./layouts/header/header";
+import { Home } from "./pages/Home/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Favorites } from "./pages/Favorites/Favorites";
 
 function App() {
   const [dataCards, setDataCards] = useState([]); // Это Hook - useState - dataCards- массив по которому работаем, setDataCards - действия которые делаем с массивом.  По умолчанию выставляем ему значением - пустой массив
   const [filteredDataCards, setFilteredDataCards] = useState([]); // массив для фильтрации. Фильтруем по первому массиву
   const [selectedDataCards, setSelectedDataCards] = useState([]); // делаем новый массив для поиска по селекту (чтобы при селекте инпут не перебивал селект)
+
+  //ИЗБРАННОЕ
+  const [favorites, setFavorites] = useState([]);
 
   async function apiCards() {
     try {
@@ -50,15 +53,70 @@ function App() {
       setFilteredDataCards(dataFilter);
     }
   }
+  // Добавление карты в избранное
+  //Если он не найдет такой айдишник в массиве то добавит его
+  function addToFavorites(card) {
+    if (!favorites.find((el) => el.id === card.id)) {
+      setFavorites([...favorites, card]);
+      console.log(card);
+    }
+  }
 
-  console.log(dataCards);
-  console.log(filteredDataCards);
-  console.log(selectedDataCards);
+  function delete1(id) {
+    setFavorites(favorites.filter((el) => el.id !== id));
+    console.log("my delete");
+  }
+
+  // Удаление карты из избранного
+  function deleteFavorite(card) {
+    setFavorites(favorites.filter((el) => el.id !== card.id));
+    console.log("errr");
+  }
+
+  //проверка на наличие карты в избранном
+  function favoriteCheck(id) {
+    favorites.find((el) => el.id === id);
+    console.log(id);
+    
+  }
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <Home
+          filteredDataCards={filteredDataCards}
+          findCards={findCards}
+          findCharacterHouse={findCharacterHouse}
+          addToFavorites={addToFavorites}
+          deleteFavorite={deleteFavorite}
+          favoriteCheck={favoriteCheck}
+          delete1={delete1}
+        />
+      ),
+    },
+    {
+      path: "/favorites",
+      element: (
+        <Favorites
+          favorites={favorites}
+          addToFavorites={addToFavorites}
+          deleteFavorite={deleteFavorite}
+          favoriteCheck={favoriteCheck}
+          delete1={delete1}
+        />
+      ),
+    },
+    {
+      path: "*",
+      element: "Error",
+    },
+  ]);
+  console.log(favorites);
 
   return (
     <>
-      <Header findCards={findCards} findHouseCards={findCharacterHouse} />
-      <Main data={filteredDataCards} />
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }

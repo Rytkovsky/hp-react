@@ -1,12 +1,12 @@
 import s from "./Select.module.scss";
 
-export const Select = ({findHouseCards}) => {
+export const Select = ({ findCharacterHouse }) => {
   return (
     <>
       <div>
         <p className={s.select__text}>House</p>
         <select
-          onChange={findHouseCards}
+          onChange={findCharacterHouse}
           className={s.select__select}
           name="school"
           id="house-select"
