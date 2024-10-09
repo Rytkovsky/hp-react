@@ -11,7 +11,7 @@ export const Favorites = () => {
 
   return (
     <>
-      <Header />
+      <Header favorites={"favorites"} />
       <Main>
         <section className={s.cards}>
           <Container>
